@@ -1,4 +1,4 @@
-class UrlController < ApplicationController
+class UrlsController < ApplicationController
   def index
     @url = Url.new
     @urls = Url.all
@@ -19,11 +19,16 @@ class UrlController < ApplicationController
   end
 
   def create
-    @url = Url.new(url_params)
-    if @url.save
-      redirect_to url_path(@url.id), notice: "Url successfully created."
-    else
-      render action: 'new'
+    @urls = Url.new(url_params)
+    respond_to do |format|
+      if @urls.save
+        format.html { redirect_to @urls, notice: 'Url was successfully created.' }
+        format.js
+        format.json { render json: @urls, status: :created, location: @url }
+      else
+        format.html { render action: "new" }
+        format.json { render json: @urls.errors, status: :unprocessable_entity }
+      end
     end
   end
 

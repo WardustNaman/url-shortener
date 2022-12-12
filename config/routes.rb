@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
-  get 'url/index'
-  get 'url/show'
+  get 'urls/index'
+  get 'urls/show'
+  post 'urls/index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
-  root 'url#index'
-  resources :url
+  root 'urls#index'
+  resources :urls
 
-  get '/stats', to: 'url#new'
-  get '/:short_url', to: 'url#redirect_url'
+  get '/stats', to: 'urls#new'
+  get '/:short_url', to: 'urls#redirect_url'
 end
