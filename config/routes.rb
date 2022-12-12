@@ -6,5 +6,6 @@ Rails.application.routes.draw do
   root 'url#index'
   resources :url
 
+  get '/stats', to: 'url#new'
   get '/:short_url', to: 'url#redirect_url'
 end

@@ -1,0 +1,8 @@
+<h3>Analytics</h3>
+<% @urls.each do |url|%>
+<li value="1">
+<p>Url: <%= url.input_url%></p>
+<p>Short url: <%= url.short_url%></p>
+<p>Total clicks: <%= url.clicked%></p>
+</li>
+<% end %>

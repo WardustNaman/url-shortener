@@ -2,6 +2,16 @@
 <p>Please enter your URL here</p>
 
 <%= form_for Url.new, url: '/url' do |f| %>
-    <%= f.text_area :input_url%>
-    <%= f.submit "SHORTEN"%>
+<label for="input_url"> Input Url : </label> <br/>
+<%= f.text_field :input_url, placeholder: "Enter the url" %> <span id="inputurlMsg"></span><br/>
+<%= f.submit "SHORTEN"%>
 <% end %>
+
+<script>
+	var inputurlHandle = document.getElementById('input_url');
+	var inputurlMsgHandle = document.getElementById('inputurlMsg');
+
+	inputurlHandle.addEventListener('focus', function(){
+		inputurlMsgHandle.innerHTML = "Enter the url";
+	}, false)
+</script>
