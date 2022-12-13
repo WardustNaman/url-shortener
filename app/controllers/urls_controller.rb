@@ -42,9 +42,9 @@ class UrlsController < ApplicationController
         url_regex = Regexp.new("((https?|ftp|file):((//)|(\\\\))+[\w\d:\#@%/;$()~_?\+-=\\\\.&]*)")
         domain = 'http://'
         if url =~ url_regex then
-          redirect_to url
+          return redirect_to(url)
         else
-          redirect_to domain.concat(url)
+          return redirect_to(domain.concat(url))
         end
       end
     end
