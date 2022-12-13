@@ -1,2 +1,3 @@
-<h1>Here's your short URL!</h1>
-<p><%= link_to @short_url, @short_url%></p>
+<h1>Short URL for <%= @url.input_url%></h1>
+<p><%= @url.short_url%></p>
+<p>Total clicks: <%= @url.clicked %></p>

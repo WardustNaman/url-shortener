@@ -1,7 +1,7 @@
 <h1>Welcome to short.com</h1>
 <p>Please enter your URL here</p>
 
-<%= form_for @url, url: '/urls' do |f| %>
+<%= form_for @url do |f| %>
 <label for="input_url"> Input Url : </label> <br/>
 <%= f.text_field :input_url, placeholder: "Enter the url" %> <span id="inputurlMsg"></span><br/>
 <%= f.submit "SHORTEN"%>
@@ -14,10 +14,18 @@
 	inputurlHandle.addEventListener('focus', function(){
 		inputurlMsgHandle.innerHTML = "Enter the url";
 	}, false)
+
+    inputurlHandle.addEventListener("blur" fuction(){
+		if(inputurlHandle.value == ""){
+		inputurlMsgHandle.innerHTML = "cant be blank";
+	}
+	else{
+		inputurlMsgHandle.innerHTML="";
+	}, false)
 </script>
 
 </br>
-<b>Url's</b>
+<b>Here's your short URL! </b>
  
 <ul id="url">
 <%= render @urls %>

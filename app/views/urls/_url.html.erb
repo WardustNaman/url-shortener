@@ -1,3 +1,4 @@
 
 <li><%= url.input_url %></br>
-<%= url.short_url%></li>
+<%link = url.short_url.split('/')[-1]%>
+<%=link_to url.short_url, link%></li>

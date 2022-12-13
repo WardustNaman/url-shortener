@@ -10,24 +10,24 @@ class UrlsController < ApplicationController
 
   def show
     @url = Url.find(params[:id])
+  end
+
+  def create
+    @url = Url.new(url_params)
     length = 5
     url_extension = ([*('A'..'Z'),*('0'..'9')]-%w(I O)).sample(length).join
     @short_url = "http://localhost:3000/#{url_extension}"
     @url.update_attribute(:clicked, @url.clicked + 1)
     @url.short_url = @short_url
-    @url.save!
-  end
-
-  def create
-    @urls = Url.new(url_params)
+    @url.save
     respond_to do |format|
-      if @urls.save
-        format.html { redirect_to @urls, notice: 'Url was successfully created.' }
+      if @url.save
+        format.html { redirect_to root_path, notice: 'Url was successfully created.' }
         format.js
-        format.json { render json: @urls, status: :created, location: @url }
+        format.json { render json: @url, status: :created, location: @url }
       else
         format.html { render action: "new" }
-        format.json { render json: @urls.errors, status: :unprocessable_entity }
+        format.json { render json: @url.errors, status: :unprocessable_entity }
       end
     end
   end
