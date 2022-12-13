@@ -1,24 +1,21 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Project Overview:
 
-Things you may want to cover:
+This is a Url Shortener Application which helps you to make 'tiny url' for 'big url' which are given as input. This can be majorly used in e-commerce and business sharing application. 
 
-* Ruby version
+This appliaction is built on:
 
-* System dependencies
+rails -v: Rails 6.0.6
+ruby -v: ruby 2.7.0
 
-* Configuration
+Follow these steps to setup this application in your local:
 
-* Database creation
+1. Go to the specific system folder through terminal
+    run 'git clone https://github.com/WardustNaman/url-shortener.git'
 
-* Database initialization
+2. then go inside the project folder 'cd url-shortener' and run 'bundle install'
 
-* How to run the test suite
+3. run 'rails db:migarte', p.s in case of failure run 'yarn install --check-files' first
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+4. run 'rails s' your application is ready.
